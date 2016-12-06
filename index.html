@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <title>Rotate</title>
+    <style>
+        .rotate {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 400px;
+            margin: -200px 0 0 -150px;
+        }
+    </style>
+</head>
+
+<body>
+<div>
+    <span>Access: "localhost:2000/mobile" with your mobile phone.</span></br>
+    Alpha: <span id="alpha"></span></br>
+    Beta: <span id="beta"></span></br>
+    Gamma: <span id="gamma"></span></br>
+</div>
+<img id='pic' class="rotate" src="http://localhost:2000/img/phone.png">
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    var socket = io();
+    var rotate = document.getElementById("pic");
+
+    socket.on("changeData", function (data) {
+        rotate.style.transform = "rotate(" + data.gamma + "deg)";
+        alpha.innerHTML = data.alpha;
+        beta.innerHTML = data.beta;
+        gamma.innerHTML = data.gamma;
+    });
+</script>
+</body>
+</html>

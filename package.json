@@ -1,0 +1,10 @@
+{
+  "name": "socket-gyroscope",
+  "version": "0.0.1",
+  "description": "gyroscope",
+  "dependencies": {
+    "express": "^4.14.0",
+    "lodash": "^4.17.2",
+    "socket.io": "^1.7.1"
+  }
+}
